@@ -121,8 +121,10 @@ class productController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $product)
+    // public function update(Request $request, $product)
+    public function update(Request $request)
 {
+    // dd($request);die;
     $validatedData = $request->validate([
         'name' => 'required|string|max:255',
         'category_code' => 'required',
@@ -132,8 +134,19 @@ class productController extends Controller
         'desc' => 'required|string',
     ]);
 
-    $product = Product::findOrFail($product);
-    $product->update($validatedData);
+    Product::where ([
+                        'product_id' => $request->productid,
+                    ])
+    -> update([
+        'name'              => $request->name,
+        'category_code'     => $request->category_code,
+        'weight'            => $request->weight,
+        'stock'             => $request->stock,
+        'price'             => $request->price,
+        'desc'              => $request->desc
+    ]);
+    // $product = Product::findOrFail($request->productid);
+    // $product->update($validatedData);
 
     if ($request->ajax()) {
         return response()->json(['success' => true, 'message' => 'Product updated successfully']);

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>M.Kom-Seller</title>
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ asset('assets/seller') }}/assets/img/icon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Fonts and icons -->
@@ -409,12 +410,11 @@
                                                     <td>{{ $p->status }}</td>
                                                     <td>
                                                         
-                                                               
+                         
                     @foreach ($products as $product)
                         <div class="product-item" id="product-row-{{ $product->id }}">
                             {{-- <span id="product-name-{{ $product->id }}">{{ $product->name }}</span> --}}
                         
-
                             <!-- Modal edit produk -->
                             <div class="modal fade"  id="modalCenter-{{ $product->id }}" tabindex="-1"
                                 aria-hidden="true">
@@ -425,11 +425,11 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
-                                        <form action="{{ route('products.update') }}" id="editForm-{{ $product->id }}" method="POST">
+                                        
+                                        <form id="editForm-{{ $product->id }}" method="POST">
                                             @csrf
-                                            
                                             <div class="modal-body">
-                                                <input type="hidden" name="id" value="{{ $product->id }}">
+                                                <input type="hidden" name="productid" value="{{ $product->product_id }}">
                                                 <div class="mb-3">
                                                     <label for="name" class="form-label">Nama</label>
                                                     <input type="text" id="name" name="name"
@@ -488,14 +488,15 @@
                         $(document).ready(function() {
                             $('form[id^="editForm-"]').on('submit', function(e) {
                                 e.preventDefault();
-
-                                var formId = $(this).attr('id');
-                                var productId = formId.split('-')[1];
-                                var formData = $(this).serialize();
                                 
-                                console.log(productId);
+                                var formData = $(this).serialize();
+
                                 $.ajax({
-                                    url: '/products/' + productId,
+                                    headers: {
+                                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                                            },
+                                    // url: '/products/' + productId,
+                                    url: '/seller.kelolaProduk',
                                     method: 'POST',
                                     data: formData,
                                     success: function(response) {

@@ -54,8 +54,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // });
 
 Route::get('/seller.kelolaProduk', [App\Http\Controllers\productController::class, 'index'])->name('products.index');
+Route::post('/seller.kelolaProduk', [App\Http\Controllers\productController::class, 'update'])->name('products.update');
 Route::post('/products/store', [App\Http\Controllers\productController::class, 'store'])->name('products.store');
-Route::post('/products/{product}', [ProductController::class, 'update'])->name('products.update');
+// Route::post('/products/{product}', [productController::class, 'update'])->name('products.update');
 Route::delete('/products/{product}', [App\Http\Controllers\productController::class, 'destroy'])->name('products.destroy');
 // Route::delete('/products/{id}', [ProductController::class, 'deleteProduct']);
 
