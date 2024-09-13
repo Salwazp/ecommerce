@@ -374,9 +374,12 @@
 								<div class="card-header">
 									<div class="row row-nav-line">
 										<ul class="nav nav-tabs nav-line nav-color-secondary" role="tablist">
-											<li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#home" role="tab" aria-selected="true">Timeline</a> </li>
-											<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-selected="false">Profile</a> </li>
-											<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings" role="tab" aria-selected="false">Settings</a> </li>
+											<li class="nav-item"> <a class="nav-link active show" data-toggle="tab"
+													href="#home" role="tab" aria-selected="true">Timeline</a> </li>
+											<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile"
+													role="tab" aria-selected="false">Profile</a> </li>
+											<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#settings"
+													role="tab" aria-selected="false">Settings</a> </li>
 										</ul>
 									</div>
 								</div>
@@ -385,13 +388,15 @@
 										<div class="col-md-6">
 											<div class="form-group form-group-default">
 												<label>Name</label>
-												<input type="text" class="form-control" name="name" placeholder="Name" value="Hizrian">
+												<input type="text" class="form-control" name="name" placeholder="Name"
+													value="Hizrian">
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group form-group-default">
 												<label>Email</label>
-												<input type="email" class="form-control" name="email" placeholder="Name" value="hello@example.com">
+												<input type="email" class="form-control" name="email" placeholder="Name"
+													value="hello@example.com">
 											</div>
 										</div>
 									</div>
@@ -399,7 +404,8 @@
 										<div class="col-md-4">
 											<div class="form-group form-group-default">
 												<label>Birth Date</label>
-												<input type="text" class="form-control" id="datepicker" name="datepicker" value="03/21/1998" placeholder="Birth Date">
+												<input type="text" class="form-control" id="datepicker"
+													name="datepicker" value="03/21/1998" placeholder="Birth Date">
 											</div>
 										</div>
 										<div class="col-md-4">
@@ -414,7 +420,243 @@
 										<div class="col-md-4">
 											<div class="form-group form-group-default">
 												<label>Phone</label>
-												<input type="text" class="form-control" value="+62008765678" name="phone" placeholder="Phone">
+												<input type="text" class="form-control" value="+62008765678"
+													name="phone" placeholder="Phone">
+											</div>
+										</div>
+									</div>
+									<div class="row mt-3">
+										<div class="col-md-6">
+											<div class="form-group form-group-default">
+												<label>Shop Name</label>
+												<input type="text" class="form-control" name="name" placeholder="Name"
+													value="shop">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group form-group-default">
+												<label>No KTP</label>
+												<input type="text" class="form-control" name="name" placeholder="Name"
+													value="022.....">
+											</div>
+										</div>
+									</div>
+									<div class="row mt-3">
+										<div class="col-md-12">
+											<div class="form-group form-group-default">
+												<label>Website</label>
+												<input type="text" class="form-control" value="website" name="website"
+													placeholder="e.g.www.google.com">
+											</div>
+										</div>
+									</div>
+									<div class="row mt-3">
+										<div class="col-md-6">
+											<div class="form-group form-group-default">
+												<label>Provinsi</label>
+												<div class="col-lg-8 fv-row fv-plugins-icon-container">
+													<select name="provinsi" aria-label="Select a Province"
+														data-control="select2" data-placeholder="Select a Province..."
+														class="form-select form-select-solid form-select-lg fw-bold select2-hidden-accessible"
+														id="provinsi" data-select2-id="select2-data-provinsi"
+														tabindex="-1" aria-hidden="true">
+														<option value="" data-select2-id="select2-data-11-h6re">Select a
+															Provinsi...</option>
+														<option value="11">Aceh</option>
+														<option value="12">Sumatera Utara</option>
+														<option value="13">Sumatera Barat</option>
+														<option value="14">Riau</option>
+														<option value="15">Jambi</option>
+														<option value="16">Sumatera Selatan</option>
+														<option value="17">Bengkulu</option>
+														<option value="18">Lampung</option>
+														<option value="19">Kepulauan Bangka Belitung</option>
+														<option value="21">Kepulauan Riau</option>
+														<option value="31">Dki Jakarta</option>
+														<option value="32">Jawa Barat</option>
+														<option value="33">Jawa Tengah</option>
+														<option value="34">Di Yogyakarta</option>
+														<option value="35">Jawa Timur</option>
+														<option value="36">Banten</option>
+														<option value="51">Bali</option>
+														<option value="52">Nusa Tenggara Barat</option>
+														<option value="53">Nusa Tenggara Timur</option>
+														<option value="61">Kalimantan Barat</option>
+														<option value="62">Kalimantan Tengah</option>
+														<option value="63">Kalimantan Selatan</option>
+														<option value="64">Kalimantan Timur</option>
+														<option value="65">Kalimantan Utara</option>
+														<option value="71">Sulawesi Utara</option>
+														<option value="72">Sulawesi Tengah</option>
+														<option value="73">Sulawesi Selatan</option>
+														<option value="74">Sulawesi Tenggara</option>
+														<option value="75">Gorontalo</option>
+														<option value="76">Sulawesi Barat</option>
+														<option value="81">Maluku</option>
+														<option value="82">Maluku Utara</option>
+														<option value="91">Papua Barat</option>
+														<option value="94">Papua</option>
+													</select><span
+														class="select2 select2-container select2-container--bootstrap5"
+														dir="ltr" data-select2-id="select2-data-10-x212"
+														style="width: 100%;"><span class="selection"><span
+																class="select2-selection select2-selection--single form-select form-select-solid form-select-lg fw-bold"
+																role="combobox" aria-haspopup="true"
+																aria-expanded="false" tabindex="0" aria-disabled="false"
+																aria-labelledby="select2-provinsi-container"
+																aria-controls="select2-provinsi-container"><span
+																	class="select2-selection__rendered"
+																	id="select2-provinsi-container" role="textbox"
+																	aria-readonly="true"
+																	title="Select a Province..."><span
+																		class="select2-selection__placeholder">Select a
+																		Province...</span></span><span
+																	class="select2-selection__arrow"
+																	role="presentation"><b
+																		role="presentation"></b></span></span></span><span
+															class="dropdown-wrapper" aria-hidden="true"></span></span>
+													<div class="fv-plugins-message-container invalid-feedback"></div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group form-group-default">
+												<label>Kota/Kabupaten</label>
+												<div class="col-lg-8 fv-row fv-plugins-icon-container">
+													<select name="kotakab" aria-label="Select a Kota/Kabupaten"
+														data-control="select2"
+														data-placeholder="Select a Kota/Kabupaten..."
+														class="form-select form-select-solid form-select-lg fw-bold select2-hidden-accessible"
+														id="kotakab" data-select2-id="select2-data-kotakab"
+														tabindex="-1" aria-hidden="true">
+														<option value="" data-select2-id="select2-data-13-ku7m">Select a
+															Kota/Kabupaten...</option>
+													</select><span
+														class="select2 select2-container select2-container--bootstrap5"
+														dir="ltr" data-select2-id="select2-data-12-sa0k"
+														style="width: 100%;"><span class="selection"><span
+																class="select2-selection select2-selection--single form-select form-select-solid form-select-lg fw-bold"
+																role="combobox" aria-haspopup="true"
+																aria-expanded="false" tabindex="0" aria-disabled="false"
+																aria-labelledby="select2-kotakab-container"
+																aria-controls="select2-kotakab-container"><span
+																	class="select2-selection__rendered"
+																	id="select2-kotakab-container" role="textbox"
+																	aria-readonly="true"
+																	title="Select a Kota/Kabupaten..."><span
+																		class="select2-selection__placeholder">Select a
+																		Kota/Kabupaten...</span></span><span
+																	class="select2-selection__arrow"
+																	role="presentation"><b
+																		role="presentation"></b></span></span></span><span
+															class="dropdown-wrapper" aria-hidden="true"></span></span>
+													<div class="fv-plugins-message-container invalid-feedback"></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row mt-3">
+										<div class="col-md-4">
+											<div class="form-group form-group-default">
+												<label>Kecamatan</label>
+												<div class="col-lg-8 fv-row fv-plugins-icon-container">
+													<select name="kecamatan" aria-label="Select a Kecamatan"
+														data-control="select2" data-placeholder="Select a Kecamatan..."
+														class="form-select form-select-solid form-select-lg fw-bold select2-hidden-accessible"
+														id="kecamatan" data-select2-id="select2-data-kecamatan"
+														tabindex="-1" aria-hidden="true">
+														<option value="" data-select2-id="select2-data-15-hpke">Select a
+															Kecamatan...</option>
+													</select><span
+														class="select2 select2-container select2-container--bootstrap5"
+														dir="ltr" data-select2-id="select2-data-14-cko8"
+														style="width: 100%;"><span class="selection"><span
+																class="select2-selection select2-selection--single form-select form-select-solid form-select-lg fw-bold"
+																role="combobox" aria-haspopup="true"
+																aria-expanded="false" tabindex="0" aria-disabled="false"
+																aria-labelledby="select2-kecamatan-container"
+																aria-controls="select2-kecamatan-container"><span
+																	class="select2-selection__rendered"
+																	id="select2-kecamatan-container" role="textbox"
+																	aria-readonly="true"
+																	title="Select a Kecamatan..."><span
+																		class="select2-selection__placeholder">Select a
+																		Kecamatan...</span></span><span
+																	class="select2-selection__arrow"
+																	role="presentation"><b
+																		role="presentation"></b></span></span></span><span
+															class="dropdown-wrapper" aria-hidden="true"></span></span>
+													<div class="fv-plugins-message-container invalid-feedback"></div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group form-group-default">
+												<label>Kelurahan/Desa</label>
+												<div class="col-lg-8 fv-row fv-plugins-icon-container">
+													<select name="kelurahan" aria-label="Select a Kelurahan/Desa"
+														data-control="select2"
+														data-placeholder="Select a Kelurahan/Desa..."
+														class="form-select form-select-solid form-select-lg fw-bold select2-hidden-accessible"
+														id="kelurahan" data-select2-id="select2-data-kelurahan"
+														tabindex="-1" aria-hidden="true">
+														<option value="" data-select2-id="select2-data-17-3z5i">Select a
+															Kelurahan/Desa...</option>
+													</select><span
+														class="select2 select2-container select2-container--bootstrap5"
+														dir="ltr" data-select2-id="select2-data-16-puxz"
+														style="width: 100%;"><span class="selection"><span
+																class="select2-selection select2-selection--single form-select form-select-solid form-select-lg fw-bold"
+																role="combobox" aria-haspopup="true"
+																aria-expanded="false" tabindex="0" aria-disabled="false"
+																aria-labelledby="select2-kelurahan-container"
+																aria-controls="select2-kelurahan-container"><span
+																	class="select2-selection__rendered"
+																	id="select2-kelurahan-container" role="textbox"
+																	aria-readonly="true"
+																	title="Select a Kelurahan/Desa..."><span
+																		class="select2-selection__placeholder">Select a
+																		Kelurahan/Desa...</span></span><span
+																	class="select2-selection__arrow"
+																	role="presentation"><b
+																		role="presentation"></b></span></span></span><span
+															class="dropdown-wrapper" aria-hidden="true"></span></span>
+													<div class="fv-plugins-message-container invalid-feedback"></div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="form-group form-group-default">
+												<label>Kode Pos</label>
+												<div class="col-lg-8 fv-row fv-plugins-icon-container">
+													<select name="kodepos" aria-label="Select a Kode Pos"
+														data-control="select2" data-placeholder="Select a Kode Pos..."
+														class="form-select form-select-solid form-select-lg fw-bold select2-hidden-accessible"
+														id="kodepos" data-select2-id="select2-data-kodepos"
+														tabindex="-1" aria-hidden="true">
+														<option value="" data-select2-id="select2-data-19-0554">Select a
+															Kode Pos...</option>
+													</select><span
+														class="select2 select2-container select2-container--bootstrap5"
+														dir="ltr" data-select2-id="select2-data-18-e4ce"
+														style="width: 100%;"><span class="selection"><span
+																class="select2-selection select2-selection--single form-select form-select-solid form-select-lg fw-bold"
+																role="combobox" aria-haspopup="true"
+																aria-expanded="false" tabindex="0" aria-disabled="false"
+																aria-labelledby="select2-kodepos-container"
+																aria-controls="select2-kodepos-container"><span
+																	class="select2-selection__rendered"
+																	id="select2-kodepos-container" role="textbox"
+																	aria-readonly="true"
+																	title="Select a Kode Pos..."><span
+																		class="select2-selection__placeholder">Select a
+																		Kode Pos...</span></span><span
+																	class="select2-selection__arrow"
+																	role="presentation"><b
+																		role="presentation"></b></span></span></span><span
+															class="dropdown-wrapper" aria-hidden="true"></span></span>
+													<div class="fv-plugins-message-container invalid-feedback"></div>
+												</div>
 											</div>
 										</div>
 									</div>
@@ -422,7 +664,9 @@
 										<div class="col-md-12">
 											<div class="form-group form-group-default">
 												<label>Address</label>
-												<input type="text" class="form-control" value="st Merdeka Putih, Jakarta Indonesia" name="address" placeholder="Address">
+												<input type="text" class="form-control"
+													value="st Merdeka Putih, Jakarta Indonesia" name="address"
+													placeholder="Address">
 											</div>
 										</div>
 									</div>
@@ -430,7 +674,8 @@
 										<div class="col-md-12">
 											<div class="form-group form-group-default">
 												<label>About Me</label>
-												<textarea class="form-control" name="about" placeholder="About Me" rows="3">A man who hates loneliness</textarea>
+												<textarea class="form-control" name="about" placeholder="About Me"
+													rows="3">yeah its about me</textarea>
 											</div>
 										</div>
 									</div>
@@ -443,10 +688,11 @@
 						</div>
 						<div class="col-md-4">
 							<div class="card card-profile card-secondary">
-								<div class="card-header" style="background-image: url('{{ asset('assets/seller') }}/assets/img/blogpost.jpg')">
+								<div class="card-header" style="background-image: url('assets/img/blogpost.jpg')">
 									<div class="profile-picture">
 										<div class="avatar avatar-xl">
-											<img src="{{ asset('assets/seller') }}/assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+											<img src="assets/img/profile.jpg" alt="..."
+												class="avatar-img rounded-circle">
 										</div>
 									</div>
 								</div>
@@ -456,17 +702,21 @@
 										<div class="job">Frontend Developer</div>
 										<div class="desc">A man who hates loneliness</div>
 										<div class="social-media">
-											<a class="btn btn-info btn-twitter btn-sm btn-link" href="#"> 
-												<span class="btn-label just-icon"><i class="flaticon-twitter"></i> </span>
+											<a class="btn btn-info btn-twitter btn-sm btn-link" href="#">
+												<span class="btn-label just-icon"><i class="flaticon-twitter"></i>
+												</span>
 											</a>
-											<a class="btn btn-danger btn-sm btn-link" rel="publisher" href="#"> 
-												<span class="btn-label just-icon"><i class="flaticon-google-plus"></i> </span> 
+											<a class="btn btn-danger btn-sm btn-link" rel="publisher" href="#">
+												<span class="btn-label just-icon"><i class="flaticon-google-plus"></i>
+												</span>
 											</a>
-											<a class="btn btn-primary btn-sm btn-link" rel="publisher" href="#"> 
-												<span class="btn-label just-icon"><i class="flaticon-facebook"></i> </span> 
+											<a class="btn btn-primary btn-sm btn-link" rel="publisher" href="#">
+												<span class="btn-label just-icon"><i class="flaticon-facebook"></i>
+												</span>
 											</a>
-											<a class="btn btn-danger btn-sm btn-link" rel="publisher" href="#"> 
-												<span class="btn-label just-icon"><i class="flaticon-dribbble"></i> </span> 
+											<a class="btn btn-danger btn-sm btn-link" rel="publisher" href="#">
+												<span class="btn-label just-icon"><i class="flaticon-dribbble"></i>
+												</span>
 											</a>
 										</div>
 										<div class="view-profile">
@@ -495,7 +745,7 @@
 					</div>
 				</div>
 			</div>
-			
+
 		</div>
 		
 		<!-- Custom template | don't include it in your project! -->

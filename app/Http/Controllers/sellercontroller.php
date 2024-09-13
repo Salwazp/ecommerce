@@ -10,6 +10,10 @@ class sellercontroller extends Controller
     {
         return view('seller.dashboard');
     }
+    public function profile()
+    {
+        return view('seller.profile');
+    }
     public function toko()
     {
         return view('seller.toko');

@@ -25,6 +25,7 @@ Route::get('/admin.chart', [App\Http\Controllers\admincontroller::class, 'chartA
 
 // seller
 Route::get('/seller.dashboard', [App\Http\Controllers\sellercontroller::class, 'dash'])->name('seller.dashboard');
+Route::get('/seller.profile', [App\Http\Controllers\sellercontroller::class, 'profile'])->name('seller.profile');
 Route::get('/seller.toko', [App\Http\Controllers\sellercontroller::class, 'toko']);
 Route::get('/seller.review', [App\Http\Controllers\sellercontroller::class, 'review']);
 Route::get('/seller.kelolaProduk', [App\Http\Controllers\productController::class, 'index'])->name('sellerKelola');
