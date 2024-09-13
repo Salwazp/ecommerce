@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ asset('assets/seller') }}/assets/img/icon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Fonts and icons -->
     <script src="{{ asset('assets/seller') }}/assets/js/plugin/webfont/webfont.min.js"></script>
     <script>
@@ -412,72 +413,71 @@
                                                         
                          
                     @foreach ($products as $product)
-                        <div class="product-item" id="product-row-{{ $product->id }}">
-                            {{-- <span id="product-name-{{ $product->id }}">{{ $product->name }}</span> --}}
-                        
-                            <!-- Modal edit produk -->
-                            <div class="modal fade"  id="modalCenter-{{ $product->id }}" tabindex="-1"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Edit Produk</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
+                    <div class="modal fade" id="modalCenter-{{ $product->product_id }}" tabindex="-1" aria-labelledby="azzahra" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="azzahra">Edit Product</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="editForm-{{ $product->product_id }}" method="POST">
+                                    @csrf
+                                    <div class="modal-body">
+                                        <input type="hidden" name="productid" value="{{ $product->product_id }}">
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">Nama</label>
+                                            <input type="text" id="name" name="name"
+                                                class="form-control" value="{{ $product->name }}" required>
                                         </div>
-                                        
-                                        <form id="editForm-{{ $product->id }}" method="POST">
-                                            @csrf
-                                            <div class="modal-body">
-                                                <input type="hidden" name="productid" value="{{ $product->product_id }}">
-                                                <div class="mb-3">
-                                                    <label for="name" class="form-label">Nama</label>
-                                                    <input type="text" id="name" name="name"
-                                                        class="form-control" value="{{ $product->name }}" required>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="category_code" class="form-label">Kategori</label>
-                                                    <select id="category_code" name="category_code"
-                                                        class="form-select" required>
-                                                        <option selected hidden>Kategori</option>
-                                                        @foreach ($categories as $c)
-                                                            <option value="{{ $c->category_code }}"
-                                                                {{ $c->category_code == $product->category->category_code ? 'selected' : '' }}>
-                                                                {{ $c->name }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="weight" class="form-label">Massa (g)</label>
-                                                    <input type="number" name="weight" id="weight"
-                                                        class="form-control" value="{{ $product->weight }}" required>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="stock" class="form-label">Stock</label>
-                                                    <input type="text" id="stock" name="stock"
-                                                        class="form-control" value="{{ $product->stock }}" required>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="price" class="form-label">Harga</label>
-                                                    <input type="text" id="price" name="price"
-                                                        class="form-control" value="{{ $product->price }}" required>
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="desc" class="form-label">Deskripsi</label>
-                                                    <textarea class="form-control" id="desc" rows="3" name="desc" required>{{ $product->desc }}</textarea>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-outline-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Submit</button>
-                                            </div>
-                                        </form>
+                                        <div class="mb-3">
+                                            <label for="category_code" class="form-label">Kategori</label>
+                                            <select id="category_code" name="category_code"
+                                                class="form-select" required>
+                                                <option selected hidden>Kategori</option>
+                                                @foreach ($categories as $c)
+                                                    <option value="{{ $c->category_code }}"
+                                                        {{ $c->category_code == $product->category->category_code ? 'selected' : '' }}>
+                                                        {{ $c->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="weight" class="form-label">Massa (g)</label>
+                                            <input type="number" name="weight" id="weight"
+                                                class="form-control" value="{{ $product->weight }}" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="stock" class="form-label">Stock</label>
+                                            <input type="text" id="stock" name="stock"
+                                                class="form-control" value="{{ $product->stock }}" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="price" class="form-label">Harga</label>
+                                            <input type="text" id="price" name="price"
+                                                class="form-control" value="{{ $product->price }}" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="status" class="form-label">Status</label>
+                                            <input type="text" id="status" name="status"
+                                                class="form-control" value="{{ $product->status }}" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="desc" class="form-label">Deskripsi</label>
+                                            <textarea class="form-control" id="desc" rows="3" name="desc" required>{{ $product->desc }}</textarea>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
                             </div>
                         </div>
+                    </div>
+                        
                     @endforeach
 
                 </div>
@@ -518,8 +518,7 @@
                 @endsection
 
                     <!-- Tombol untuk membuka modal edit -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-bs-toggle="modal" 
-                        data-target="#modalCenter-{{ $product->id }}">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter-{{ $p->product_id }}">
                         Edit
                     </button>
                 
@@ -716,6 +715,7 @@
         </div>
     </div>
     <!-- Core JS Files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('assets/seller') }}/assets/js/core/jquery.3.2.1.min.js"></script>
     <script src="{{ asset('assets/seller') }}/assets/js/core/popper.min.js"></script>
     <script src="{{ asset('assets/seller') }}/assets/js/core/bootstrap.min.js"></script>
@@ -726,8 +726,8 @@
     <!-- Bootstrap Toggle -->
     <script src="{{ asset('assets/seller') }}/assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"> -->
     </script>
     <!-- jQuery Scrollbar -->
     <script src="{{ asset('assets/seller') }}/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>

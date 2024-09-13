@@ -131,6 +131,7 @@ class productController extends Controller
         'weight' => 'required|numeric',
         'stock' => 'required|integer',
         'price' => 'required|numeric',
+        'status' => 'required|string',
         'desc' => 'required|string',
     ]);
 
@@ -143,6 +144,7 @@ class productController extends Controller
         'weight'            => $request->weight,
         'stock'             => $request->stock,
         'price'             => $request->price,
+        'status'            => $request->status,
         'desc'              => $request->desc
     ]);
     // $product = Product::findOrFail($request->productid);
