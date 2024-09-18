@@ -98,7 +98,7 @@
             },
             custom: {
                 "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"],
-                urls: ['assets/css/fonts.css']
+                urls: ['assets/admin/assets/css/fonts.css']
             },
             active: function() {
                 sessionStorage.fonts = true;
@@ -107,19 +107,34 @@
     </script>
 
     <!-- CSS Files -->
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/azzara.min.css') }}">
 
 </head>
 
 <body class="login">
     @yield('content')
-    <script scr="{{ asset(' asset/admin/assets/css/azzara.min.css') }}"></script>
-        <script src = "{{ asset(' asset/admin/assets/js/core/jquery.3.2.1.min.js') }}" ></script>
-    <script src="{{ asset(' asset/admin/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js') }}"></script>
-    <script src="{{ asset(' asset/admin/assets/js/core/popper.min.js') }}"></script>
-    <script src="{{ asset(' asset/admin/assets/js/core/bootstrap.min.js') }}"></script>
-    <script src="{{ asset(' asset/admin/assets/js/ready.js') }}"></script>
+    {{-- assets\admin\assets\css --}}
+    <script scr="{{ asset('assets/admin/assets/css/azzara.min.css') }}"></script>
+    {{-- <script src="{{ asset(' assets/admin/assets/js/core/jquery.3.2.1.min.js') }}" ></script> --}}
+    <script src="{{ asset('assets/admin/assets/js/core/jquery.3.2.1.min.js') }}" ></script>
+    <script src="{{ asset('assets/admin/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/assets/js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/assets/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/admin/assets/js/ready.js') }}"></script>
+    {{-- <script src="assets/plugins/global/plugins.bundle.js"></script>
+    <script src="assets/js/scripts.bundle.js"></script> --}}
+<script>
+    $("body").on('click', '.toggle-password', function() {
+        $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $("#pass_log_id");
+        if (input.attr("type") === "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+        }
+    });
+</script>
 </body>
 
 </html>

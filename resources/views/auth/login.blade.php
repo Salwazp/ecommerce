@@ -99,8 +99,12 @@
 
                             <div class="position-relative">
                                 <input id="password" name="password" type="password" class="form-control" required
-                                    @error('password') is-invalid @enderror name="password" required
-                                    autocomplete="current-password"><br>
+                                    @error('password') is-invalid @enderror name="password" style="margin-bottom: 12px;" required
+                                    autocomplete="current-password">
+                                <div class="show-password">
+                                    <span toggle="#password" class="fa fa-fw fa-eye field_icon text-primary toggle-password" style="font-size: 18px;">
+                                    </span>
+                                </div>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -108,12 +112,10 @@
                                 @enderror
                                 <a href="#" class="link float-right">Forget Password ?</a>
 
-                                <div class="show-password">
-                                    <i class="flaticon-interface"></i>
-                                </div>
+                                
                             </div>
                         </div>
-                        <div class="form-group form-action-d-flex mb-3">
+                        <div class="form-group form-action-d-flex mb-3" style="padding-top: 26px;">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" name="remember" class="custom-control-input" id="remember"
                                     {{ old('remember-me') ? 'checked' : '' }} />
