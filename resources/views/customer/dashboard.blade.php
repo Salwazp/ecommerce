@@ -281,7 +281,7 @@
                     href="https://www.free-css.com/free-css-templates">
                     <div class="cat-item d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width:100px;height:100px;"><img class="img-fluid"
-                                src="{{ asset('assets/user') }}/assets/img/cat-1.jpg" alt="website template image">
+                                src="{{ asset('assets/user') }}/img/,,,,.jpg" alt="website template image">
                         </div>
                         <div class="flex-fill pl-3">
                             <h6>Category Name</h6>
@@ -293,7 +293,7 @@
                     href="https://www.free-css.com/free-css-templates">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width:100px;height:100px;"><img class="img-fluid"
-                                src="{{ asset('assets/user') }}/assets/img/cat-2.jpg" alt="website template image">
+                                src="{{ asset('assets/user') }}/img/.....jpg" alt="website template image">
                         </div>
                         <div class="flex-fill pl-3">
                             <h6>Category Name</h6>
@@ -305,7 +305,7 @@
                     href="https://www.free-css.com/free-css-templates">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width:100px;height:100px;"><img class="img-fluid"
-                                src="{{ asset('assets/user') }}/assets/img/cat-3.jpg" alt="website template image">
+                                src="{{ asset('assets/user') }}/img/''.jpg" alt="website template image">
                         </div>
                         <div class="flex-fill pl-3">
                             <h6>Category Name</h6>
@@ -317,7 +317,7 @@
                     href="https://www.free-css.com/free-css-templates">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
                         <div class="overflow-hidden" style="width:100px;height:100px;"><img class="img-fluid"
-                                src="{{ asset('assets/user') }}/assets/img/cat-4.jpg" alt="website template image">
+                                src="{{ asset('assets/user') }}/img/'.jpg" alt="website template image">
                         </div>
                         <div class="flex-fill pl-3">
                             <h6>Category Name</h6>

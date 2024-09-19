@@ -249,7 +249,7 @@
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">{{ _('Logout') }}</a>
+                                        document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                             class="d-none">
@@ -277,7 +277,7 @@
                         <div class="info">
                             <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                                 <span>
-                                    <i>nama admin nya</i>
+                                    <i>{{ Auth::user()->name }}</i>
                                     <span class="user-level">Administrator</span>
                                     <span class="caret"></span>
                                 </span>

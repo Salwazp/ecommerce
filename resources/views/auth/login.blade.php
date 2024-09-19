@@ -81,57 +81,135 @@
                     <h3 class="text-center">Sign In</h3>
                 </center>
                 <div class="login-form">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-                        <div class="form-group">
-                            <label for="username" class="placeholder"><b>Email</b></label><br>
-                            <input type="email" class="form-control" id="email" autofocus
-                                @error('email') is-valid @enderror name="email" value="{{ old('email') }}" required
-                                autocomplete="email" />
-                            @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                        <div class="form-group">
-                            <label for="password" class="placeholder"><b>Password</b></label>
-
-                            <div class="position-relative">
-                                <input id="password" name="password" type="password" class="form-control" required
-                                    @error('password') is-invalid @enderror name="password" style="margin-bottom: 12px;" required
-                                    autocomplete="current-password">
-                                <div class="show-password">
-                                    <span toggle="#password" class="fa fa-fw fa-eye field_icon text-primary toggle-password" style="font-size: 18px;">
-                                    </span>
-                                </div>
-                                @error('password')
+                    @if(!session('message'))
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <div class="form-group">
+                                <label for="username" class="placeholder"><b>Email</b></label><br>
+                                <input type="email" class="form-control" id="email" autofocus
+                                    @error('email') is-valid @enderror name="email" value="{{ old('email') }}" required
+                                    autocomplete="email" />
+                                @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                                <a href="#" class="link float-right">Forget Password ?</a>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="placeholder"><b>Password</b></label>
 
-                                
+                                <div class="position-relative">
+                                    <input id="password" name="password" type="password" class="form-control" required
+                                        @error('password') is-invalid @enderror name="password" style="margin-bottom: 12px;" required
+                                        autocomplete="current-password">
+                                    <div class="show-password">
+                                        {{-- <span toggle="#password" class="fa fa-fw fa-eye field_icon toggle-password" style="font-size: 18px;"> --}}
+                                        <span toggle="#password" class="fa fa-fw fa-eye toggle-password" style="font-size: 18px;">
+                                        </span>
+                                    </div>
+                                    {{-- {{ dd($errors->first('message')) }} --}}
+                                    {{-- @if ($errors->has('message'))
+                                        <span role="alert" style="color: red">
+                                            <strong>{{  $errors->first('message') }}</strong>
+                                        </span>
+                                    @endif --}}
+                                    {{-- @if(session('message'))
+                                        <span style="color: red">
+                                            {{ session('message') }}
+                                        </span>
+                                    @endif --}}
+                                    {{-- @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror --}}
+                                    <a href="#" class="link float-right">Forget Password ?</a>
+
+                                    
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group form-action-d-flex mb-3" style="padding-top: 26px;">
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" name="remember" class="custom-control-input" id="remember"
-                                    {{ old('remember-me') ? 'checked' : '' }} />
-                                <label class="custom-control-label m-0" for="remember-me">Remember Me</label>
+                            <div class="form-group form-action-d-flex mb-3" style="padding-top: 26px;">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="remember" class="custom-control-input" id="remember"
+                                        {{ old('remember-me') ? 'checked' : '' }} />
+                                    <label class="custom-control-label m-0" for="remember-me">Remember Me</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary col-md-5 float-right mt-3 mt-sm-0 fw-bold">Sign
+                                    In</button>
                             </div>
-                            <button type="submit" class="btn btn-primary col-md-5 float-right mt-3 mt-sm-0 fw-bold">Sign
-                                In</button>
-                        </div>
-                        <!-- 				<div class="form-action">
-                                    <a href="#" class="btn btn-primary btn-rounded btn-login">Sign In</a>
-                                </div> -->
-                        <div class="login-account">
-                            <span class="msg">Don't have an account yet ?</span>
-                            <a href="#" id="show-signup" class="link">Sign Up</a>
-                        </div>
-                    </form>
+                            <!-- 				<div class="form-action">
+                                        <a href="#" class="btn btn-primary btn-rounded btn-login">Sign In</a>
+                                    </div> -->
+                            <div class="login-account">
+                                <span class="msg">Don't have an account yet ?</span>
+                                <a href="#" id="show-signup" class="link">Sign Up</a>
+                            </div>
+                        </form>
+                    @else
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <div class="form-group">
+                                <label for="username" class="placeholder"><b>Email</b></label><br>
+                                <input type="email" class="form-control" id="email" autofocus
+                                    @error('email') is-valid @enderror name="email" value="{{ old('email') }}" required
+                                    autocomplete="email" />
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="placeholder"><b>Password</b></label>
+
+                                <div class="position-relative">
+                                    <input id="password" name="password" type="password" class="form-control" required
+                                        @error('password') is-invalid @enderror name="password" style="margin-bottom: 12px;" required
+                                        autocomplete="current-password">
+                                    <div class="show-password" style="padding-bottom: 32px;">
+                                        {{-- <span toggle="#password" class="fa fa-fw fa-eye field_icon toggle-password" style="font-size: 18px;"> --}}
+                                        <span toggle="#password" class="fa fa-fw fa-eye toggle-password" style="font-size: 18px;">
+                                        </span>
+                                    </div>
+                                    {{-- {{ dd($errors->first('message')) }} --}}
+                                    {{-- @if ($errors->has('message'))
+                                        <span role="alert" style="color: red">
+                                            <strong>{{  $errors->first('message') }}</strong>
+                                        </span>
+                                    @endif --}}
+                                    @if(session('message'))
+                                        <span style="color: red">
+                                            {{ session('message') }}
+                                        </span>
+                                    @endif
+                                    {{-- @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror --}}
+                                    <a href="#" class="link float-right">Forget Password ?</a>
+
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group form-action-d-flex mb-3" style="padding-top: 26px;">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" name="remember" class="custom-control-input" id="remember"
+                                        {{ old('remember-me') ? 'checked' : '' }} />
+                                    <label class="custom-control-label m-0" for="remember-me">Remember Me</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary col-md-5 float-right mt-3 mt-sm-0 fw-bold">Sign
+                                    In</button>
+                            </div>
+                            <!-- 				<div class="form-action">
+                                        <a href="#" class="btn btn-primary btn-rounded btn-login">Sign In</a>
+                                    </div> -->
+                            <div class="login-account">
+                                <span class="msg">Don't have an account yet ?</span>
+                                <a href="#" id="show-signup" class="link">Sign Up</a>
+                            </div>
+                        </form>
+                    @endif
                 </div>
             </div>
         </div>

@@ -48,13 +48,14 @@ class LoginController extends Controller
 
         if (auth()->attempt($request->only('email', 'password'))) {
             $user = auth()->user();
-
+            // dd($user);die;
             return match ($user->userType) {
-                'A' => redirect()->route('admin.dashboard'),
+                'A' => redirect()->route('adminDashboard'),
                 default => redirect()->route('customerDashboard'),
             };
         }
 
-        return redirect()->route('login')->with('error', 'Email-Address And Password Are Wrong.');
+        return redirect()->route('login')->with('message', 'Email atau Password salah.');
+        // return redirect()->back()->withErrors(['message' => 'Email atau password salah']);
    }
 }
