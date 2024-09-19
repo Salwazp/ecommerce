@@ -20,7 +20,7 @@
             },
             custom: {
                 "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"],
-                urls: ['assets/css/fonts.css']
+                urls: ['assets/admin/assets/css/fonts.css']
             },
             active: function() {
                 sessionStorage.fonts = true;
@@ -277,7 +277,7 @@
                         <div class="info">
                             <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                                 <span>
-                                    <i>{{ Auth::user()->name }}</i>
+                                    <i>{{ Auth::user()->email }}</i>
                                     <span class="user-level">Administrator</span>
                                     <span class="caret"></span>
                                 </span>
