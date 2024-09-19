@@ -301,6 +301,20 @@
                                             <span class="link-collapse">Settings</span>
                                         </a>
                                     </li>
+                                    <li>
+                                    {{-- <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">{{ __('Logout') }}</a> --}}
+                                        <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                            <span class="link-collapse">{{ __('Logout') }}</span>
+                                        </a>
+                                        <form id="logout-form2" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
