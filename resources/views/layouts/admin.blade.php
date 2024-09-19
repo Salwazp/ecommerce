@@ -40,7 +40,6 @@
         <div class="main-header" data-background-color="purple">
             <!-- Logo Header -->
             <div class="logo-header">
-
                 <a href="dashboard.html" class="logo">
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"

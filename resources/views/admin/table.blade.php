@@ -33,6 +33,13 @@
     <link rel="stylesheet" href="{{ asset('assets/admin') }}/assets/css/azzara.min.css">
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="{{ asset('assets/admin') }}/assets/css/demo.css">
+<style>
+    img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    }
+</style>
 </head>
 
 <body>
@@ -387,34 +394,38 @@
                                     <div class="card-title">Hoverable Table</div>
                                 </div>
                                 <div class="card-body">
+                                        {{-- {{ dd($product -> name) }} --}}
                                     <table class="table table-hover">
                                         <thead>
                                             <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
+                                                <th scope="col">Picture</th>
+                                                <th scope="col">Product Name</th>
+                                                <th scope="col">Product Category</th>
+                                                <th scope="col">Shop ID</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td colspan="2">Larry the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                        </tbody>
+                                        @foreach ($Product as $product)
+                                            <tbody>
+                                                <tr>
+                                                {{-- {{ asset('assets/user') }}/lib/owlcarousel/assets/owl.carousel.min.css" --}}
+                                                    <td style="width: 10%"> <img src="{{ asset('assets/user/') }}/{{$product -> picture}}" alt="Picture"></td>
+                                                    <td>{{$product -> name}}</td>
+                                                    <td>{{$product -> category}}</td>
+                                                    <td>{{$product -> shop_id}}</td>
+                                                </tr>
+                                                {{-- <tr>
+                                                    <td>2</td>
+                                                    <td>Jacob</td>
+                                                    <td>Thornton</td>
+                                                    <td>@fat</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td colspan="2">Larry the Bird</td>
+                                                    <td>@twitter</td>
+                                                </tr> --}}
+                                            </tbody>
+                                        @endforeach
                                     </table>
                                 </div>
                             </div>
@@ -429,10 +440,10 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">First</th>
-                                                <th scope="col">Last</th>
-                                                <th scope="col">Handle</th>
+                                                <th scope="col">Picture</th>
+                                                <th scope="col">Product Name</th>
+                                                <th scope="col">Product Category</th>
+                                                <th scope="col">Shop ID</th>
                                             </tr>
                                         </thead>
                                         <tbody>
