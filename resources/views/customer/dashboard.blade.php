@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Marketplace</title>
+    <title>Tea Éclat</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -68,7 +68,7 @@
         </div>
         <div class="container px-0">
             <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                <a href="index.html" class="navbar-brand">
+                <a href="{{ route('customer.dashboard')}}" class="navbar-brand">
                     {{-- <h1 class="text-primary display-6">MarketPlace</h1> --}}
                     <img class="img-logo" src="{{ asset('assets/user') }}/img/logo1.jpg" style="height:180px;">
                 </a>
@@ -79,7 +79,7 @@
                 <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                     <div class="navbar-nav mx-auto">
                         <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="shop.html" class="nav-item nav-link">Shop</a>
+                        <a href="{{ route('customer.shop')}}" class="nav-item nav-link">Shop</a>
                         <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -184,8 +184,8 @@
         <div class="container py-5">
             <div class="row g-5 align-items-center">
                 <div class="col-md-12 col-lg-7">
-                    <h4 class="mb-3 text-secondary">Maksa Nii</h4>
-                    <h1 class="mb-5 display-3 text-primary">Yu Belanja Yu</h1>
+                    <h4 class="mb-3 text-secondary">teh berkualitas</h4>
+                    <h1 class="mb-5 display-3 text-primary">Tea Éclat</h1>
 
                 </div>
                 <div class="col-md-12 col-lg-5">
@@ -274,106 +274,94 @@
     <!-- Featurs Section End -->
 
     <div class="container-fluid pt-5">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span
-                class="bg-secondary pr-3">Categories</span></h2>
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4">
+            <span class="bg-secondary pr-3">Categories</span>
+        </h2>
+        
+        <!-- Baris Pertama: 3 Kolom -->
         <div class="row px-xl-5 pb-3">
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1"><a class="text-decoration-none"
-                    href="https://www.free-css.com/free-css-templates">
+            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
+                <a class="text-decoration-none" href="https://www.free-css.com/free-css-templates">
                     <div class="cat-item d-flex align-items-center mb-4">
-                        <div class="overflow-hidden" style="width:100px;height:100px;"><img class="img-fluid"
-                                src="{{ asset('assets/user') }}/assets/img/cat-1.jpg" alt="website template image">
+                        <div class="overflow-hidden" style="width:100px;height:100px;">
+                            <img class="img-fluid" src="{{ asset('assets/user') }}/img/Web-Teh/teh-hijau.jpeg" alt="website template image">
                         </div>
                         <div class="flex-fill pl-3">
-                            <h6>Category Name</h6>
+                            <h6>Teh Hijau</h6>
                             <small class="text-body">100 Products</small>
                         </div>
                     </div>
-                </a></div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1"><a class="text-decoration-none"
-                    href="https://www.free-css.com/free-css-templates">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
+                <a class="text-decoration-none" href="https://www.free-css.com/free-css-templates">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                        <div class="overflow-hidden" style="width:100px;height:100px;"><img class="img-fluid"
-                                src="{{ asset('assets/user') }}/assets/img/cat-2.jpg" alt="website template image">
+                        <div class="overflow-hidden" style="width:100px;height:100px;">
+                            <img class="img-fluid" src="{{ asset('assets/user') }}/img/Web-Teh/teh-hitam.jpeg" alt="website template image">
                         </div>
                         <div class="flex-fill pl-3">
-                            <h6>Category Name</h6>
+                            <h6>Teh Hitam</h6>
                             <small class="text-body">100 Products</small>
                         </div>
                     </div>
-                </a></div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1"><a class="text-decoration-none"
-                    href="https://www.free-css.com/free-css-templates">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
+                <a class="text-decoration-none" href="https://www.free-css.com/free-css-templates">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                        <div class="overflow-hidden" style="width:100px;height:100px;"><img class="img-fluid"
-                                src="{{ asset('assets/user') }}/assets/img/cat-3.jpg" alt="website template image">
+                        <div class="overflow-hidden" style="width:100px;height:100px;">
+                            <img class="img-fluid" src="{{ asset('assets/user') }}/img/Web-Teh/teh-oolong.jpeg" alt="website template image">
                         </div>
                         <div class="flex-fill pl-3">
-                            <h6>Category Name</h6>
+                            <h6>Teh Oolong</h6>
                             <small class="text-body">100 Products</small>
                         </div>
                     </div>
-                </a></div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1"><a class="text-decoration-none"
-                    href="https://www.free-css.com/free-css-templates">
+                </a>
+            </div>
+        </div>
+    
+        <!-- Baris Kedua: 3 Kolom -->
+        <div class="row px-xl-5 pb-3">
+            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
+                <a class="text-decoration-none" href="https://www.free-css.com/free-css-templates">
+                    <div class="cat-item d-flex align-items-center mb-4">
+                        <div class="overflow-hidden" style="width:100px;height:100px;">
+                            <img class="img-fluid" src="{{ asset('assets/user') }}/img/Web-Teh/teh-putih.jpeg" alt="website template image">
+                        </div>
+                        <div class="flex-fill pl-3">
+                            <h6>Teh Putih</h6>
+                            <small class="text-body">100 Products</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
+                <a class="text-decoration-none" href="https://www.free-css.com/free-css-templates">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                        <div class="overflow-hidden" style="width:100px;height:100px;"><img class="img-fluid"
-                                src="{{ asset('assets/user') }}/assets/img/cat-4.jpg" alt="website template image">
+                        <div class="overflow-hidden" style="width:100px;height:100px;">
+                            <img class="img-fluid" src="{{ asset('assets/user') }}/img/Web-Teh/teh-herbal.jpeg" alt="website template image">
                         </div>
                         <div class="flex-fill pl-3">
-                            <h6>Category Name</h6>
+                            <h6>Teh Herbal</h6>
                             <small class="text-body">100 Products</small>
                         </div>
                     </div>
-                </a></div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1"><a class="text-decoration-none"
-                    href="https://www.free-css.com/free-css-templates">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 pb-1">
+                <a class="text-decoration-none" href="https://www.free-css.com/free-css-templates">
                     <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                        <div class="overflow-hidden" style="width:100px;height:100px;"><img class="img-fluid"
-                                src="{{ asset('assets/user') }}/assets/img/cat-4.jpg" alt="website template image">
+                        <div class="overflow-hidden" style="width:100px;height:100px;">
+                            <img class="img-fluid" src="{{ asset('assets/user') }}/img/Web-Teh/teh-puerh.jpeg" alt="website template image">
                         </div>
                         <div class="flex-fill pl-3">
-                            <h6>Category Name</h6>
+                            <h6>Teh Pu-erh</h6>
                             <small class="text-body">100 Products</small>
                         </div>
                     </div>
-                </a></div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1"><a class="text-decoration-none"
-                    href="https://www.free-css.com/free-css-templates">
-                    <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                        <div class="overflow-hidden" style="width:100px;height:100px;"><img class="img-fluid"
-                                src="{{ asset('assets/user') }}/assets/img/cat-3.jpg" alt="website template image">
-                        </div>
-                        <div class="flex-fill pl-3">
-                            <h6>Category Name</h6>
-                            <small class="text-body">100 Products</small>
-                        </div>
-                    </div>
-                </a></div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1"><a class="text-decoration-none"
-                    href="https://www.free-css.com/free-css-templates">
-                    <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                        <div class="overflow-hidden" style="width:100px;height:100px;"><img class="img-fluid"
-                                src="{{ asset('assets/user') }}/assets/img/cat-2.jpg" alt="website template image">
-                        </div>
-                        <div class="flex-fill pl-3">
-                            <h6>Category Name</h6>
-                            <small class="text-body">100 Products</small>
-                        </div>
-                    </div>
-                </a></div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1"><a class="text-decoration-none"
-                    href="https://www.free-css.com/free-css-templates">
-                    <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                        <div class="overflow-hidden" style="width:100px;height:100px;"><img class="img-fluid"
-                                src="{{ asset('assets/user') }}/assets/img/cat-1.jpg" alt="website template image">
-                        </div>
-                        <div class="flex-fill pl-3">
-                            <h6>Category Name</h6>
-                            <small class="text-body">100 Products</small>
-                        </div>
-                    </div>
-                </a></div>
-
+                </a>
+            </div>
         </div>
     </div>
 
@@ -389,186 +377,31 @@
                 <div class="tab-content">
                     <div id="tab-1" class="tab-pane fade show p-0 active">
                         <div class="row g-4">
-                            <div class="col-lg-12">
-                                <div class="row g-4">
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="{{ asset('assets/user') }}/img/fruite-item-5.jpg"
-                                                    class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">Hiasan</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Bucket Bunga</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
-                                                    eiusmod te incididunt</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                    <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                                                        cart</a>
-                                                </div>
-                                            </div>
+                            {{-- {{dd($product)}} --}}
+                            @foreach ($products as $product)
+                                <div class="col-md-6 col-lg-4 col-xl-3 d-flex">
+                                    <div class="rounded position-relative fruite-item w-100">
+                                        <div class="fruite-img">
+                                            <img src="{{ asset('assets/user') }}/img/fruite-item-5.jpg"
+                                                class="img-fluid w-100 rounded-top" alt="">
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="{{ asset('assets/user') }}/img/fruite-item-5.jpg"
-                                                    class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">Hiasan</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Bucket Bunga Lucu</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
-                                                    eiusmod te incididunt</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                    <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                                                        cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="{{ asset('assets/user') }}/img/fruite-item-2.jpg"
-                                                    class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">Makanan</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Donat Gemashh</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
-                                                    eiusmod te incididunt</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                    <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                                                        cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="{{ asset('assets/user') }}/img/fruite-item-4.jpg"
-                                                    class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">Pakaian</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Kaos Pria</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
-                                                    eiusmod te incididunt</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                    <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                                                        cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="{{ asset('assets/user') }}/img/fruite-item-3.jpg"
-                                                    class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">Hiasan</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Manik-Manik Lengkap</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
-                                                    eiusmod te incididunt</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                    <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                                                        cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="{{ asset('assets/user') }}/img/fruite-item-1.jpg"
-                                                    class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">Pakaian</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Atasan Wanita</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
-                                                    eiusmod te incididunt</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                    <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                                                        cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="{{ asset('assets/user') }}/img/fruite-item-2.jpg"
-                                                    class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">Makanan</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Donat Imut</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
-                                                    eiusmod te incididunt</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                    <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                                                        cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 col-lg-4 col-xl-3">
-                                        <div class="rounded position-relative fruite-item">
-                                            <div class="fruite-img">
-                                                <img src="{{ asset('assets/user') }}/img/fruite-item-5.jpg"
-                                                    class="img-fluid w-100 rounded-top" alt="">
-                                            </div>
-                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                style="top: 10px; left: 10px;">Hiasan</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>Bucket Simple</h4>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
-                                                    eiusmod te incididunt</p>
-                                                <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">$4.99 / kg</p>
-                                                    <a href="#"
-                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                            class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                                                        cart</a>
-                                                </div>
+                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                            style="top: 10px; left: 10px;">Hiasan</div>
+                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                            <h4>{{$product->name}}</h4>
+                                            <p>{{$product->desc}}</p>
+                                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                                <p class="text-dark fs-5 fw-bold mb-0">{{$product->price}}</p>
+                                                <a href="#"
+                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add
+                                                    to
+                                                    cart</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

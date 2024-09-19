@@ -14,17 +14,38 @@ class productController extends Controller
     /**
      * Display a listing of the resource.
      */
+    // public function index()
+    // {
+    //     $products = Product::with(['category'])
+    //                 ->where([
+    //                             [DB::RAW('status'), '<>', 'deleted']
+    //                         ])
+    //                 ->get();
+    //     $categories = Category::all();
+    //     $shop = Auth::user()->customers->sellers->shops;
+    //     return ProductPicture::where('product_id', $products->)->get();
+    //     return view('seller.kelolaProduk', compact('products', 'categories', 'shop'));
+    // }
+    
     public function index()
-    {
-        $products = Product::with(['category'])
-                    ->where([
-                                [DB::RAW('status'), '<>', 'deleted']
-                            ])
-                    ->get();
-        $categories = Category::all();
-        $shop = Auth::user()->customers->sellers->shops;
-        return view('seller.kelolaProduk', compact('products', 'categories', 'shop'));
-    }
+{
+    // Ambil semua produk dengan kategori terkait, dan status selain 'deleted'
+    $products = Product::with(['category'])
+                ->where('status', '<>', 'deleted')
+                ->get();
+    
+    // Ambil semua kategori
+    $categories = Category::all();
+
+    // Ambil shop yang terkait dengan user yang sedang login
+    $shop = Auth::user()->customers->sellers->shops;
+
+    // Mengambil gambar terkait produk
+    $productPictures = ProductPicture::whereIn('product_id', $products->pluck('product_id'))->first();
+    // Kembalikan data ke view
+    return view('seller.kelolaProduk', compact('products', 'categories', 'shop', 'productPictures'));
+}
+
     /**
      * Show the form for creating a new resource.
      */
@@ -86,7 +107,7 @@ class productController extends Controller
      
                 // Simpan data gambar ke tabel product_pictures
                 ProductPicture::create([
-                    'product_id' => $product->id, 
+                    'product_id' => $product->product_id, 
                     'directory' => $directory,
                 ]);
             }
@@ -193,4 +214,15 @@ class productController extends Controller
     }
 
 
+    public function search(Request $request)
+    {
+        // Tangkap input pencarian dari user
+        $searchTerm = $request->input('search');
+
+        // Lakukan pencarian pada kolom yang diinginkan, misalnya pada nama produk
+        $products = Product::where('name', 'LIKE', '%' . $searchTerm . '%')->get();
+
+        // Kembalikan hasil pencarian ke view
+        return view('customer.shop', compact('products'));
+    }
 }

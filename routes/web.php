@@ -6,8 +6,10 @@ use App\Http\Controllers\Otpcontroller;
 use App\Http\Controllers\admincontroller;
 use App\Http\Controllers\sellercontroller;
 use App\Http\Controllers\productController;
+use App\Http\Controllers\CartController;
 
 Route::get('/', function () {
+    return redirect()->route('customer.dashboard');
     return view('customer.dashboard');
 });
 
@@ -16,7 +18,7 @@ Auth::routes(['verify'=>true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin.dashboard', [App\Http\Controllers\admincontroller::class, 'index'])->name('adminDashboard')->middleware(['auth', 'can:isAdmin']);
 Route::get('/seller.dashboard', [App\Http\Controllers\HomeController::class, 'seller'])->name('sellerDashboard')->middleware(['auth', 'can:isSeller']);
-Route::get('/customer.dashboard', [App\Http\Controllers\HomeController::class, 'cus'])->name('customerDashboard');
+Route::get('/customer.dashboard', [App\Http\Controllers\HomeController::class, 'cus'])->name('customer.dashboard');
 // Route::post('users', [HomeController::class , 'join'])->name('daftarSeller');
 
 // admin
@@ -66,3 +68,16 @@ Route::get('/register/shop', [App\Http\Controllers\HomeController::class, 'shopD
 Route::post('/register/shop/', [App\Http\Controllers\HomeController::class, 'shopDetailAdd'])->name('seller.shopDetailAdd');
 
 
+Route::get('/customer.shop', [App\Http\Controllers\HomeController::class, 'shop'])->name('customer.shop');
+Route::get('/customer.cart', [App\Http\Controllers\HomeController::class, 'cart'])->name('customer.cart');
+
+Route::get('/search', [productController::class, 'search'])->name('search');
+
+
+Route::middleware('auth')->group(function () 
+{
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart/add/{product}', [CartController::class, 'addToCart'])->name('cart.add');
+    Route::delete('/cart/remove/{item}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::put('/cart/update/{item}', [CartController::class, 'updateFromCart'])->name('cart.update');
+});

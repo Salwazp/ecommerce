@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Shop;
+use App\Models\Product;
+use App\Models\ProductPicture;
 use Illuminate\Support\Facades\Auth;
 use App\Services\OTPService;
 
@@ -38,10 +40,29 @@ class HomeController extends Controller
     {
         return view('seller.dashboard');
     }
+    public function cart()
+    {
+        return view('customer.cart');
+    }
     public function cus()
     {
-        return view('customer.dashboard');
+        $products = Product::all();
+        // dd($product); die;
+        return view('customer.dashboard', compact('products'));
     }
+    public function shop()
+    {
+         // Ambil semua produk dengan kategori terkait, dan status selain 'deleted'
+    $products = Product::with(['category'])
+    ->where('status', '<>', 'deleted')
+    ->get();
+
+
+// Mengambil gambar terkait produk
+$productPictures = ProductPicture::whereIn('product_id', $products->pluck('product_id'))->first();
+        return view('customer.shop', compact('products', 'productPictures'));
+    }
+
     public function join()
     {
         $user = Auth::user();
@@ -124,6 +145,8 @@ class HomeController extends Controller
 
         return redirect()->route('seller.dashboard');
     }
+
+    
 }
 
 

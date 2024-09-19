@@ -396,7 +396,7 @@
                                             @foreach ($products as $p)
 <tr>
                                                     <td>
-                                                        <img class="w-10 h-10 ms-1 rounded-circle border" src="{{ asset('storage') }}/Adidas Indonesia/products/images/Wu7XrmJxFUIXLS2VIUiuWeNaZGVQITUMhEL3yld1.png">
+                                                        <img class="ms-1 rounded-circle border" style="height: 2rem; width: auto" src="{{ asset('storage/'. $productPictures->directory) }}">
                                                     </td>
                                                     <td>
                                                         <strong>
@@ -413,7 +413,7 @@
                                                         
                          
                     @foreach ($products as $product)
-                    <div class="modal fade" id="modalCenter-{{ $product->product_id }}" tabindex="-1" aria-labelledby="azzahra" aria-hidden="true">
+<div class="modal fade" id="modalCenter-{{ $product->product_id }}" tabindex="-1" aria-labelledby="azzahra" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                             <div class="modal-header">
@@ -436,11 +436,11 @@
                                                 class="form-select" required>
                                                 <option selected hidden>Kategori</option>
                                                 @foreach ($categories as $c)
-                                                    <option value="{{ $c->category_code }}"
+<option value="{{ $c->category_code }}"
                                                         {{ $c->category_code == $product->category->category_code ? 'selected' : '' }}>
                                                         {{ $c->name }}
                                                     </option>
-                                                @endforeach
+@endforeach
                                             </select>
                                         </div>
                                         <div class="mb-3">
@@ -477,51 +477,51 @@
                             </div>
                         </div>
                     </div>
-                        
-                    @endforeach
+@endforeach
 
                 </div>
 
                 @section('scripts')
-                    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-                    <script>
-                        $(document).ready(function() {
-                            $('form[id^="editForm-"]').on('submit', function(e) {
-                                e.preventDefault();
-                                
-                                var formData = $(this).serialize();
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+                            <script>
+                                $(document).ready(function() {
+                                    $('form[id^="editForm-"]').on('submit', function(e) {
+                                        e.preventDefault();
 
-                                $.ajax({
-                                    headers: {
+                                        var formData = $(this).serialize();
+
+                                        $.ajax({
+                                            headers: {
                                                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                                             },
-                                    // url: '/products/' + productId,
-                                    url: '/seller.kelolaProduk',
-                                    method: 'POST',
-                                    data: formData,
-                                    success: function(response) {
-                                        if (response.success) {
-                                            $('#modalCenter-' + productId).modal('hide');
-                                            alert(response.message);
-                                            // Update tampilan produk di sini jika perlu
-                                            $('#product-name-' + productId).text($('#name')
-                                                .val()); // misalnya update nama produk
-                                        }
-                                    },
-                                    error: function(xhr) {
-                                        alert('Terjadi kesalahan saat memperbarui produk.');
-                                    }
+                                            // url: '/products/' + productId,
+                                            url: '/seller.kelolaProduk',
+                                            method: 'POST',
+                                            data: formData,
+                                            success: function(response) {
+                                                if (response.success) {
+                                                    $('#modalCenter-' + productId).modal('hide');
+                                                    alert(response.message);
+                                                    // Update tampilan produk di sini jika perlu
+                                                    $('#product-name-' + productId).text($('#name')
+                                                        .val()); // misalnya update nama produk
+                                                }
+                                            },
+                                            error: function(xhr) {
+                                                alert('Terjadi kesalahan saat memperbarui produk.');
+                                            }
+                                        });
+                                    });
                                 });
-                            });
-                        });
-                    </script>
-                @endsection
+                            </script>
+@endsection
 
                     <!-- Tombol untuk membuka modal edit -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCenter-{{ $p->product_id }}">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#modalCenter-{{ $p->product_id }}">
                         Edit
                     </button>
-                
+
                     <!-- Tombol untuk membuka modal hapus -->
                     <button type="button" class="btn btn-danger" data-toggle="modal"
                         data-target="#deleteModal-{{ $product->product_id }}">
@@ -548,141 +548,139 @@
                             </div>
                         </div>
                     </div>
-         
-
+                </div>
             </div>
-        </div>
-        </td>
-        </tr>
-        @endforeach
-        </tbody>
-        </table>
-        <!-- Modal tambah produk -->
-        <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalCenterTitle">Tambah Produk</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+            </td>
+            </tr>
+            @endforeach
+            </tbody>
+            </table>
+            <!-- Modal tambah produk -->
+            <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalCenterTitle">Tambah Produk</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data">
+                            <div class="modal-body">
+                                @csrf
+                                <input type="hidden" name="shop_id" value="{{ $shop->shop_id }}">
+                                @error('shop_id')
+                                    <strong>{{ $message }}</strong>
+                                @enderror
+                                <input type="hidden" name="status" value="Draft">
+                                <div class="row">
+                                    <div class="col mb-3">
+                                        <label for="nameWithTitle" class="form-label">Nama</label>
+                                        <input type="text" id="name" name="name" class="form-control"
+                                            placeholder="Nama Produk">
+                                        @error('name')
+                                            <strong>{{ $message }}</strong>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="mb-3">
+                                        <label for="defaultSelect" class="form-label">Kategori</label>
+                                        <select id="defaultSelect" name="category_code" class="form-select">
+                                            <option selected hidden>Kategori</option>
+                                            @foreach ($categories as $c)
+                                                <option value="{{ $c->category_code }}">{{ $c->name }}
+                                                </option>
+                                            @endforeach
+
+                                        </select>
+                                        @error('category_code')
+                                            <strong>{{ $message }}</strong>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col mb-3">
+                                        <label for="emailWithTitle" class="form-label">Massa (g)</label>
+                                        <input type="number" name="weight" id="weight" class="form-control"
+                                            placeholder="xx gram">
+                                        @error('weight')
+                                            <strong>{{ $message }}</strong>
+                                        @enderror
+                                    </div>
+                                    <div class="col mb-3">
+                                        <label for="dobWithTitle" class="form-label">Stock</label>
+                                        <input type="text" id="stock" name="stock" class="form-control"
+                                            placeholder="XXX">
+                                        @error('stock')
+                                            <strong>{{ $message }}</strong>
+                                        @enderror
+                                    </div>
+                                    <div class="col mb-3">
+                                        <label for="dobWithTitle" class="form-label">Harga</label>
+                                        <input type="text" id="harga" name="price" class="form-control"
+                                            placeholder=>
+                                        @error('price')
+                                            <strong>{{ $message }}</strong>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="mb-3">
+                                        <label for="emailWithTitle" class="form-label">Deskripsi</label>
+
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc"></textarea>
+                                        @error('desc')
+                                            <strong>{{ $message }}</strong>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row g-2">
+                                    <div class="mb-3">
+                                        <label for="formFile" class="form-label">Pictures</label>
+                                        <input class="form-control" type="file" id="pictures" name="pictures[]"
+                                            multiple>
+                                        @error('pictures[]')
+                                            <strong>{{ $message }}</strong>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
+                                    Close
+                                </button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
                     </div>
-                    <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data">
-                        <div class="modal-body">
-                            @csrf
-                            <input type="hidden" name="shop_id" value="{{ $shop->shop_id }}">
-                            @error('shop_id')
-                                <strong>{{ $message }}</strong>
-                            @enderror
-                            <input type="hidden" name="status" value="Draft">
-                            <div class="row">
-                                <div class="col mb-3">
-                                    <label for="nameWithTitle" class="form-label">Nama</label>
-                                    <input type="text" id="name" name="name" class="form-control"
-                                        placeholder="Nama Produk">
-                                    @error('name')
-                                        <strong>{{ $message }}</strong>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="mb-3">
-                                    <label for="defaultSelect" class="form-label">Kategori</label>
-                                    <select id="defaultSelect" name="category_code" class="form-select">
-                                        <option selected hidden>Kategori</option>
-                                        @foreach ($categories as $c)
-                                            <option value="{{ $c->category_code }}">{{ $c->name }}
-                                            </option>
-                                        @endforeach
-
-                                    </select>
-                                    @error('category_code')
-                                        <strong>{{ $message }}</strong>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col mb-3">
-                                    <label for="emailWithTitle" class="form-label">Massa (g)</label>
-                                    <input type="number" name="weight" id="weight" class="form-control"
-                                        placeholder="xx gram">
-                                    @error('weight')
-                                        <strong>{{ $message }}</strong>
-                                    @enderror
-                                </div>
-                                <div class="col mb-3">
-                                    <label for="dobWithTitle" class="form-label">Stock</label>
-                                    <input type="text" id="stock" name="stock" class="form-control"
-                                        placeholder="XXX">
-                                    @error('stock')
-                                        <strong>{{ $message }}</strong>
-                                    @enderror
-                                </div>
-                                <div class="col mb-3">
-                                    <label for="dobWithTitle" class="form-label">Harga</label>
-                                    <input type="text" id="harga" name="price" class="form-control"
-                                        placeholder=>
-                                    @error('price')
-                                        <strong>{{ $message }}</strong>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="mb-3">
-                                    <label for="emailWithTitle" class="form-label">Deskripsi</label>
-
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc"></textarea>
-                                    @error('desc')
-                                        <strong>{{ $message }}</strong>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row g-2">
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Pictures</label>
-                                    <input class="form-control" type="file" id="pictures" name="pictures[]"
-                                        multiple>
-                                    @error('pictures[]')
-                                        <strong>{{ $message }}</strong>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
-                                Close
-                            </button>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-                    </form>
                 </div>
             </div>
-        </div>
 
 
-        <div class="panel-footer">
-            <div class="row">
-                <div class="col col-sm-6 col-xs-6">showing <b>5</b> out of <b>25</b> entries
-                </div>
-                <div class="col-sm-6 col-xs-6">
-                    <ul class="pagination hidden-xs pull-right">
-                        <li><a href="#"></a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">></a></li>
-                    </ul>
-                    <ul class="pagination visible-xs pull-right">
-                        <li><a href="#"></a></li>
-                        <li><a href="#"></a></li>
-                    </ul>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col col-sm-6 col-xs-6">showing <b>5</b> out of <b>25</b> entries
+                    </div>
+                    <div class="col-sm-6 col-xs-6">
+                        <ul class="pagination hidden-xs pull-right">
+                            <li><a href="#"></a></li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">></a></li>
+                        </ul>
+                        <ul class="pagination visible-xs pull-right">
+                            <li><a href="#"></a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-    
+
 
     <!-- Custom template | don't include it in your project! -->
     <div class="custom-template">
@@ -727,7 +725,8 @@
     <script src="{{ asset('assets/seller') }}/assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
     <!-- Bootstrap JS -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"> -->
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        -- >
     </script>
     <!-- jQuery Scrollbar -->
     <script src="{{ asset('assets/seller') }}/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>

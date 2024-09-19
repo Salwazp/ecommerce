@@ -9,12 +9,11 @@ class Product extends Model
 {
     use HasFactory;
 
-    // protected $primaryKey = 'product_id'; // Menentukan kolom primary key
+    protected $primaryKey = 'product_id'; // Menentukan kolom primary key
 
     protected $table ="products";
     
     protected $fillable = [
-        'product_id',
         'shop_id',
         'name',
         'category_code',
@@ -25,9 +24,14 @@ class Product extends Model
         'status',
     ];
 
+    public function cartItems()
+    {
+        return $this->hasMany(CartItem::class, 'product_id', 'product_id');
+    }
+
     public function pictures()
     {
-        return $this->hasMany(ProductPicture::class);
+        return $this->hasMany(ProductPicture::class, 'product_id');
     }
 
     public function shops()

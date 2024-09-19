@@ -51,7 +51,7 @@ class LoginController extends Controller
 
             return match ($user->userType) {
                 'A' => redirect()->route('admin.dashboard'),
-                default => redirect()->route('customerDashboard'),
+                default => redirect()->route('customer.dashboard'),
             };
         }
 
