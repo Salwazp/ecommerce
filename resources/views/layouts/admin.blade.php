@@ -16,7 +16,7 @@
             },
             custom: {
                 "families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"],
-                urls: ['assets/css/fonts.css']
+                urls: ['assets/admin/assets/css/fonts.css']
             },
             active: function() {
                 sessionStorage.fonts = true;
@@ -40,7 +40,6 @@
         <div class="main-header" data-background-color="purple">
             <!-- Logo Header -->
             <div class="logo-header">
-
                 <a href="dashboard.html" class="logo">
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
@@ -253,7 +252,7 @@
 
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">{{ _('Logout') }}</a>
+                                            document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
 
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                                 class="d-none">

@@ -13,6 +13,7 @@ Route::get('/', function () {
     return view('customer.dashboard');
 });
 
+Auth::routes();
 Auth::routes(['verify'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -43,7 +44,6 @@ Route::get('/otp/verify', [Otpcontroller::class, 'showVerifyForm'])->name('otp.v
 Route::post('/otp/verify', [Otpcontroller::class, 'verify']);
 
 Route::post('/otp/resend', [Otpcontroller::class, 'resend'])->name('otp.resend');
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

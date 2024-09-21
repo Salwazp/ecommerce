@@ -15,7 +15,7 @@
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                         <span>
-                            <i>nama admin nya</i>
+                            <i>{{ Auth::user()->email }}</i>
                             <span class="user-level">Administrator</span>
                             <span class="caret"></span>
                         </span>
