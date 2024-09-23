@@ -206,7 +206,7 @@
         {{-- <script src="{{ asset('assets/admin/assets/js/ready.js') }}"></script> --}}
         <script>
             $("body").on('click', '.toggle-password', function() {
-                $(this).toggleClass("fa-eye fa-eye-slash");
+                $(this).toggleClass("far fa-eye-slash");
                 var input = $("#password");
                 if (input.attr("type") === "password") {
                     input.attr("type", "text");
@@ -218,7 +218,7 @@
     @else
         <script>
             $("body").on('click', '.toggle-password', function() {
-                $(this).toggleClass("fa-eye fa-eye-slash");
+                $(this).toggleClass("far fa-eye-slash");
                 var input = $("#password");
                 if (input.attr("type") === "password") {
                     input.attr("type", "text");
@@ -228,7 +228,7 @@
             });
 
             $("body").on('click', '.toggle-password2', function() {
-                $(this).toggleClass("fa-eye fa-eye-slash");
+                $(this).toggleClass("far fa-eye-slash");
                 var input = $("#password-confirm");
                 if (input.attr("type") === "password") {
                     input.attr("type", "text");

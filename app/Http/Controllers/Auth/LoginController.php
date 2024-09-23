@@ -51,7 +51,7 @@ class LoginController extends Controller
             // dd($user);die;
             return match ($user->userType) {
                 'A' => redirect()->route('admin.dashboard'),
-                default => redirect()->route('customer.dashboard')
+                default => redirect()->route('home')
             };
         }
         return redirect()->route('login')->with('message', 'Email atau Password salah.');

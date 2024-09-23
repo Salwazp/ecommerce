@@ -104,7 +104,7 @@
                                         autocomplete="current-password">
                                     <div class="show-password">
                                         {{-- <span toggle="#password" class="fa fa-fw fa-eye field_icon toggle-password" style="font-size: 18px;"> --}}
-                                        <span toggle="#password" class="fa fa-fw fa-eye toggle-password" style="font-size: 18px;">
+                                        <span toggle="#password" class="fa fa-fw fa-eye toggle-password" style="font-size: 15px;">
                                         </span>
                                     </div>
                                     {{-- {{ dd($errors->first('message')) }} --}}
@@ -142,7 +142,7 @@
                                     </div> -->
                             <div class="login-account">
                                 <span class="msg">Don't have an account yet ?</span>
-                                <a href="#" id="show-signup" class="link">Sign Up</a>
+                                <a href="{{ route('register') }}" id="show-signup" class="link">Sign Up</a>
                             </div>
                         </form>
                     @else
@@ -168,7 +168,7 @@
                                         autocomplete="current-password">
                                     <div class="show-password" style="padding-bottom: 32px;">
                                         {{-- <span toggle="#password" class="fa fa-fw fa-eye field_icon toggle-password" style="font-size: 18px;"> --}}
-                                        <span toggle="#password" class="fa fa-fw fa-eye toggle-password" style="font-size: 18px;">
+                                        <span toggle="#password" class="fa fa-fw fa-eye toggle-password" style="font-size: 15px;">
                                         </span>
                                     </div>
                                     {{-- {{ dd($errors->first('message')) }} --}}
@@ -206,7 +206,7 @@
                                     </div> -->
                             <div class="login-account">
                                 <span class="msg">Don't have an account yet ?</span>
-                                <a href="#" id="show-signup" class="link">Sign Up</a>
+                                <a href="{{ route('register') }}" id="show-signup" class="link">Sign Up</a>
                             </div>
                         </form>
                     @endif

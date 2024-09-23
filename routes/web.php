@@ -9,17 +9,16 @@ use App\Http\Controllers\productController;
 use App\Http\Controllers\CartController;
 
 Route::get('/', function () {
-    return redirect()->route('customer.dashboard');
-    return view('customer.dashboard');
+    return redirect()->route('home');
 });
 
 Auth::routes();
 Auth::routes(['verify'=>true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin.dashboard', [App\Http\Controllers\admincontroller::class, 'index'])->name('adminDashboard')->middleware(['auth', 'can:isAdmin']);
 Route::get('/seller.dashboard', [App\Http\Controllers\HomeController::class, 'seller'])->name('sellerDashboard')->middleware(['auth', 'can:isSeller']);
-Route::get('/customer.dashboard', [App\Http\Controllers\HomeController::class, 'cus'])->name('customer.dashboard');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'cus'])->name('home');
 // Route::post('users', [HomeController::class , 'join'])->name('daftarSeller');
 
 // admin
@@ -45,7 +44,7 @@ Route::post('/otp/verify', [Otpcontroller::class, 'verify']);
 
 Route::post('/otp/resend', [Otpcontroller::class, 'resend'])->name('otp.resend');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //produk 
 // Route::controller(productController::class)->group(function () {

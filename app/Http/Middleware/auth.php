@@ -21,6 +21,9 @@ class auth
         elseif(auth()->user()->userType == 'S'){
             return $next($request);
         }
+        else {
+            return $next($request);
+        }
         return response()->json(['you dont have permission']);
     }
 }

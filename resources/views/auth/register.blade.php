@@ -33,7 +33,7 @@
                                         </span>
                                     @enderror
                                     <div class="show-password">
-                                        <span toggle="#password" class="fa fa-fw fa-eye toggle-password" style="font-size: 18px;">
+                                        <span toggle="#password" class="fa fa-fw fa-eye toggle-password" style="font-size: 15px;">
                                         </span>
                                     </div>
                                 </div>
@@ -44,7 +44,7 @@
                                     <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" autocomplete="new-password" required>
                                     <div class="show-password">
-                                        <span toggle="#password-confirm" class="fa fa-fw fa-eye toggle-password2" style="font-size: 18px;">
+                                        <span toggle="#password-confirm" class="fa fa-fw fa-eye toggle-password2" style="font-size: 15px;">
                                         </span>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@
                             </div>
                             <div class="row form-action">
                                 <div class="col-md-6">
-                                    <a href="#" id="show-signin"
+                                    <a href="{{ route('home') }}" id="show-signin"
                                         class="btn btn-danger btn-link w-100 fw-bold">Cancel</a>
                                 </div>
                                 <div class="col-md-6">

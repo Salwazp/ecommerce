@@ -34,7 +34,7 @@
 </head>
 
 <body>
-
+    {{-- {{ dd($products) }}  --}}
     <!-- Spinner Start -->
     <div id="spinner"
         class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
@@ -68,7 +68,7 @@
         </div>
         <div class="container px-0">
             <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                <a href="{{ route('customer.dashboard')}}" class="navbar-brand">
+                <a href="{{ route('home')}}" class="navbar-brand">
                     {{-- <h1 class="text-primary display-6">MarketPlace</h1> --}}
                     <img class="img-logo" src="{{ asset('assets/user') }}/img/logo1.jpg" style="height:180px;">
                 </a>
