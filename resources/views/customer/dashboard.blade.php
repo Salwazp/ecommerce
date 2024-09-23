@@ -8,15 +8,16 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
@@ -27,14 +28,13 @@
     <link href="{{ asset('assets/user') }}/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{ asset('assets/user') }}/css/style.css" rel="stylesheet">
+    <link href="{{ asset('assets/user') }}/css/style.css" rel="stylesheet">  <!-- Bentrok -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 
 <body>
-    {{-- {{ dd($products) }}  --}}
     <!-- Spinner Start -->
     <div id="spinner"
         class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
@@ -374,36 +374,46 @@
                         <h3>Mungkin Anda Suka</h3>
                     </div>
                 </div>
-                <div class="tab-content">
-                    <div id="tab-1" class="tab-pane fade show p-0 active">
-                        <div class="row g-4">
-                            {{-- {{dd($product)}} --}}
-                            @foreach ($products as $product)
-                                <div class="col-md-6 col-lg-4 col-xl-3 d-flex">
-                                    <div class="rounded position-relative fruite-item w-100">
-                                        <div class="fruite-img">
-                                            <img src="{{ asset('assets/user') }}/img/fruite-item-5.jpg"
-                                                class="img-fluid w-100 rounded-top" alt="">
-                                        </div>
-                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                            style="top: 10px; left: 10px;">Hiasan</div>
-                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                            <h4>{{$product->name}}</h4>
-                                            <p>{{$product->desc}}</p>
-                                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                                <p class="text-dark fs-5 fw-bold mb-0">{{$product->price}}</p>
-                                                <a href="#"
-                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add
-                                                    to
-                                                    cart</a>
+                <section class="product-page">
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane fade show p-0 active">
+                                <div class="row g-4">
+                                    {{-- {{dd($products)}} --}}
+                                    <table id="product" class="table table-striped">
+                                        {{-- @foreach ($products as $product) --}}
+                                        @foreach ($products as $key => $data)
+                                            @csrf
+                                            <div class="col-md-6 col-lg-4 col-xl-3 d-flex">
+                                                <div class="rounded position-relative fruite-item w-100">
+                                                    <div class="fruite-img">
+                                                        {{-- <img src="{{ asset('assets/user') }}/img/fruite-item-5.jpg" --}}
+                                                        <img src="{{ asset('assets/user') }}/{{ $data->directory}}"
+                                                            class="img-fluid w-100 rounded-top" alt="">
+                                                    </div>
+                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                        style="top: 10px; left: 10px;">Hiasan</div>
+                                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                        <h4>{{$data->name}}</h4>
+                                                        <p>{{$data->desc}}</p>
+                                                        <div class="d-flex justify-content-between flex-lg-wrap">
+                                                            <p class="text-dark fs-5 fw-bold mb-0">{{ "$ ".number_format($data->price,0)}}</p>
+                                                            <a href="#"
+                                                                class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                                    class="fa fa-shopping-bag me-2 text-primary"></i> Add
+                                                                to
+                                                                cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
+                                        @endforeach
+                                    </table>
+                                    <div id="paging" style="font-size: 16px;">
+                                        {{ $products->render("pagination::bootstrap-5") }}
                                     </div>
                                 </div>
-                            @endforeach
+                            </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -880,6 +890,10 @@
     <script src="{{ asset('assets/user') }}/lib/waypoints/waypoints.min.js"></script>
     <script src="{{ asset('assets/user') }}/lib/lightbox/js/lightbox.min.js"></script>
     <script src="{{ asset('assets/user') }}/lib/owlcarousel/owl.carousel.min.js"></script>
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="{{ asset('assets/user') }}/js/main.js"></script>

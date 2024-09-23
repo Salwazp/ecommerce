@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\ProductPicture;
 use Illuminate\Support\Facades\Auth;
 use App\Services\OTPService;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 
 class HomeController extends Controller
@@ -46,8 +47,10 @@ class HomeController extends Controller
     }
     public function cus()
     {
-        $products = Product::all();
-        // dd($product); die;
+        $products = Product::select('products.product_id', 'products.shop_id', 'product_pictures.product_picture_id', 
+                                    'product_pictures.directory', 'products.name','products.price','products.desc')
+                    -> Join('product_pictures', 'product_pictures.product_id', '=', 'products.product_id')
+                    -> paginate(4);
         return view('customer.dashboard', compact('products'));
     }
     public function shop()
@@ -145,7 +148,6 @@ $productPictures = ProductPicture::whereIn('product_id', $products->pluck('produ
 
         return redirect()->route('seller.dashboard');
     }
-
     
 }
 
