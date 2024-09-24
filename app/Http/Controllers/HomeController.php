@@ -50,7 +50,7 @@ class HomeController extends Controller
         $products = Product::select('products.product_id', 'products.shop_id', 'product_pictures.product_picture_id', 
                                     'product_pictures.directory', 'products.name','products.price','products.desc')
                     -> Join('product_pictures', 'product_pictures.product_id', '=', 'products.product_id')
-                    -> paginate(4);
+                    -> paginate(12);
         return view('customer.dashboard', compact('products'));
     }
     public function shop()

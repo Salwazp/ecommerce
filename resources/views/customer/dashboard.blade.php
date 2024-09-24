@@ -10,7 +10,6 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +27,7 @@
     <link href="{{ asset('assets/user') }}/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{ asset('assets/user') }}/css/style.css" rel="stylesheet">  <!-- Bentrok -->
+    <link href="{{ asset('assets/user') }}/css/style.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -97,7 +96,7 @@
                             class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
                             data-bs-toggle="modal" data-bs-target="#searchModal"><i
                                 class="fas fa-search text-primary"></i></button>
-                        <a href="cart.html" class="position-relative me-4 my-auto">
+                        <a href="{{ route('cart.index') }}" class="position-relative me-4 my-auto">
                             <i class="fa fa-shopping-bag fa-2x"></i>
                             <span
                                 class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
@@ -375,45 +374,45 @@
                     </div>
                 </div>
                 <section class="product-page">
-                        <div class="tab-content">
-                            <div id="tab-1" class="tab-pane fade show p-0 active">
-                                <div class="row g-4">
-                                    {{-- {{dd($products)}} --}}
-                                    <table id="product" class="table table-striped">
-                                        {{-- @foreach ($products as $product) --}}
-                                        @foreach ($products as $key => $data)
-                                            @csrf
-                                            <div class="col-md-6 col-lg-4 col-xl-3 d-flex">
-                                                <div class="rounded position-relative fruite-item w-100">
-                                                    <div class="fruite-img">
-                                                        {{-- <img src="{{ asset('assets/user') }}/img/fruite-item-5.jpg" --}}
-                                                        <img src="{{ asset('assets/user') }}/{{ $data->directory}}"
-                                                            class="img-fluid w-100 rounded-top" alt="">
-                                                    </div>
-                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
-                                                        style="top: 10px; left: 10px;">Hiasan</div>
-                                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                        <h4>{{$data->name}}</h4>
-                                                        <p>{{$data->desc}}</p>
-                                                        <div class="d-flex justify-content-between flex-lg-wrap">
-                                                            <p class="text-dark fs-5 fw-bold mb-0">{{ "$ ".number_format($data->price,0)}}</p>
-                                                            <a href="#"
-                                                                class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                                    class="fa fa-shopping-bag me-2 text-primary"></i> Add
-                                                                to
-                                                                cart</a>
-                                                        </div>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane fade show p-0 active">
+                            <div class="row g-4">
+                                {{-- {{dd($products)}} --}}
+                                <table id="product" class="table table-striped">
+                                    {{-- @foreach ($products as $product) --}}
+                                    @foreach ($products as $key => $data)
+                                        @csrf
+                                        <div class="col-md-6 col-lg-4 col-xl-3 d-flex">
+                                            <div class="rounded position-relative fruite-item w-100">
+                                                <div class="fruite-img">
+                                                    {{-- <img src="{{ asset('assets/user') }}/img/fruite-item-5.jpg" --}}
+                                                    <img src="{{ asset('assets/user') }}/{{ $data->directory}}"
+                                                        class="img-fluid w-100 rounded-top" alt="">
+                                                </div>
+                                                <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                                    style="top: 10px; left: 10px;">Hiasan</div>
+                                                <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                    <h4>{{$data->name}}</h4>
+                                                    <p>{{$data->desc}}</p>
+                                                    <div class="d-flex justify-content-between flex-lg-wrap">
+                                                        <p class="text-dark fs-5 fw-bold mb-0">{{ "$ ".number_format($data->price,0)}}</p>
+                                                        <a href="#"
+                                                            class="btn border border-secondary rounded-pill px-3 text-primary"><i
+                                                                class="fa fa-shopping-bag me-2 text-primary"></i> Add
+                                                            to
+                                                            cart</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                        @endforeach
-                                    </table>
-                                    <div id="paging" style="font-size: 16px;">
-                                        {{ $products->render("pagination::bootstrap-5") }}
-                                    </div>
-                                </div>
+                                        </div>
+                                    @endforeach
+                                </table>
                             </div>
                         </div>
+                    </div>
+                </section>
+                <div id="paging" style="font-size: 16px;">
+                    {{ $products->render("pagination::bootstrap-5") }}
                 </div>
             </div>
         </div>
@@ -897,6 +896,7 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('assets/user') }}/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

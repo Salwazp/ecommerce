@@ -14,6 +14,7 @@ class CartController extends Controller
     public function index()
     {
         $customer = Customer::where('user_id', Auth::id())->first();
+        // dd($customer);die;
         $cart = Cart::where('customer_id', $customer->id)->with('items.product')->first();
         return view('customer.cart', compact('cart'));
     }
